@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F500 Trading System | AI-Powered Distributed Market Intelligence</title>
-    <meta name="description" content="F500 - Verteiltes KI-Handelssystem mit TCN Neural Networks, XGBoost ML, Ensemble Learning, Multi-Agent Prediction und autonomem Trading Bot. 38.000 Zeilen Production Code.">
+    <meta name="description" content="F500 - Verteiltes KI-Handelssystem mit TCN Neural Networks, Training Blockchain (5.588 Blocks), GPU Smart Trainer, 240+ Ensemble Models, 8 Prediction Agents und autonomem Trading Bot. 38.000 Zeilen Production Code.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -714,6 +714,205 @@
             margin-top: 2px;
         }
 
+        /* ═══ GPU SMART TRAINER ═══ */
+        .trainer-hero {
+            margin-bottom: 40px;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.06), rgba(255, 60, 60, 0.04));
+            border: 1px solid rgba(255, 140, 0, 0.12);
+            border-radius: 16px;
+        }
+
+        .trainer-hero .th-icon {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .trainer-hero .th-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffc060;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .trainer-hero .th-sub {
+            font-size: 0.88rem;
+            color: #8888aa;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .trainer-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .trainer-stat {
+            text-align: center;
+            padding: 14px 8px;
+            background: rgba(255, 140, 0, 0.04);
+            border: 1px solid rgba(255, 140, 0, 0.08);
+            border-radius: 10px;
+        }
+
+        .trainer-stat .ts-num {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffc060;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .trainer-stat .ts-label {
+            font-size: 0.62rem;
+            color: #666688;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .trainer-live {
+            margin-top: 20px;
+            padding: 16px 20px;
+            background: rgba(0, 200, 120, 0.04);
+            border: 1px solid rgba(0, 200, 120, 0.1);
+            border-radius: 10px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.75rem;
+            color: #40d8b0;
+            text-align: center;
+        }
+
+        .trainer-live .tl-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #00c878;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        /* ═══ TRAINING BLOCKCHAIN ═══ */
+        .blockchain-hero {
+            margin-bottom: 40px;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(0, 180, 160, 0.06), rgba(74, 158, 255, 0.04));
+            border: 1px solid rgba(0, 180, 160, 0.12);
+            border-radius: 16px;
+        }
+
+        .blockchain-hero .bh-icon {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .blockchain-hero .bh-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #40d8b0;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .blockchain-hero .bh-sub {
+            font-size: 0.88rem;
+            color: #8888aa;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        .blockchain-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .blockchain-stat {
+            text-align: center;
+            padding: 14px 8px;
+            background: rgba(0, 180, 160, 0.04);
+            border: 1px solid rgba(0, 180, 160, 0.08);
+            border-radius: 10px;
+        }
+
+        .blockchain-stat .bs-num {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #40d8b0;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .blockchain-stat .bs-label {
+            font-size: 0.62rem;
+            color: #666688;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .blockchain-sample {
+            margin-top: 20px;
+            padding: 18px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 180, 160, 0.1);
+            border-radius: 10px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.68rem;
+            color: #8888aa;
+            line-height: 1.7;
+            overflow-x: auto;
+        }
+
+        .blockchain-sample .bs-hash {
+            color: #40d8b0;
+        }
+
+        .blockchain-sample .bs-score {
+            color: #ffc060;
+        }
+
+        .blockchain-sample .bs-sym {
+            color: #7bb8ff;
+        }
+
+        .blockchain-sample .bs-arrow {
+            color: #444466;
+        }
+
+        .blockchain-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .bf-item {
+            padding: 14px;
+            background: rgba(0, 180, 160, 0.03);
+            border: 1px solid rgba(0, 180, 160, 0.06);
+            border-radius: 8px;
+        }
+
+        .bf-item h5 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #40d8b0;
+            margin-bottom: 4px;
+        }
+
+        .bf-item p {
+            font-size: 0.68rem;
+            color: #666688;
+            line-height: 1.5;
+        }
+
         /* ═══ ROADMAP ═══ */
         .roadmap {
             margin-bottom: 50px;
@@ -1055,7 +1254,7 @@
         @media (max-width: 768px) {
             .logo { font-size: 3.2rem; }
             .tagline { font-size: 1.2rem; }
-            .stats { grid-template-columns: repeat(3, 1fr); }
+            .stats { grid-template-columns: repeat(4, 1fr) !important; }
             .stat-number { font-size: 1.4rem; }
             .features { grid-template-columns: 1fr; }
             .arch-layer { flex-direction: column; align-items: flex-start; }
@@ -1091,12 +1290,12 @@
 
         <p class="intro">
             Ein vollautomatisches, verteiltes KI-Handelssystem mit Temporal Convolutional Networks,
-            Multi-Agent Prediction, Ensemble Learning und autonomem Trading Bot.
-            38.000 Zeilen Production Code &middot; 14 Module &middot; Live Trading mit Perpetual Futures.
+            Multi-Agent Prediction, Ensemble Learning, Training Blockchain und autonomem Trading Bot.
+            38.000 Zeilen Production Code &middot; 5.588 Blockchain-Blocks &middot; Live Trading 24/7.
         </p>
 
         <!-- ═══ KEY STATS ═══ -->
-        <div class="stats">
+        <div class="stats" style="grid-template-columns: repeat(4, 1fr);">
             <div class="stat">
                 <div class="stat-number">5</div>
                 <div class="stat-label">Training Nodes</div>
@@ -1106,12 +1305,20 @@
                 <div class="stat-label">Prediction Agents</div>
             </div>
             <div class="stat">
-                <div class="stat-number">300+</div>
-                <div class="stat-label">Trainierte Modelle</div>
+                <div class="stat-number">240+</div>
+                <div class="stat-label">Aktive Modelle</div>
             </div>
             <div class="stat">
-                <div class="stat-number">12</div>
+                <div class="stat-number">13</div>
                 <div class="stat-label">Krypto-Paare</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5.588</div>
+                <div class="stat-label">Blockchain Blocks</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">142</div>
+                <div class="stat-label">Training Sessions</div>
             </div>
             <div class="stat">
                 <div class="stat-number">38k</div>
@@ -1208,8 +1415,8 @@
             <div class="feature">
                 <div class="feature-icon">&#128300;</div>
                 <h3>Ensemble Intelligence</h3>
-                <p>&Uuml;ber 300 spezialisierte Modelle im Ensemble. Top-5 Modelle pro Token werden f&uuml;r Voting geladen. Automatische Registry, Score-Tracking und dynamische Rotation.</p>
-                <div class="feature-detail">models: 300+ &middot; per_token: top-5 &middot; score_cap: 0.95</div>
+                <p>240+ spezialisierte Modelle im Ensemble. Top-5 Modelle pro Token werden f&uuml;r Voting geladen. Automatische Registry, Score-Tracking und dynamische Rotation.</p>
+                <div class="feature-detail">models: 240+ &middot; per_token: top-5 &middot; score_cap: 0.95</div>
             </div>
             <div class="feature">
                 <div class="feature-icon">&#127760;</div>
@@ -1266,7 +1473,7 @@
 
         <!-- ═══ TRADING TOKENS ═══ -->
         <div class="section-title">Instrumente</div>
-        <div class="section-heading">12 Krypto-Handelspaare</div>
+        <div class="section-heading">13 Krypto-Handelspaare</div>
 
         <div class="tokens-section">
             <div class="tokens-grid">
@@ -1316,6 +1523,10 @@
                 </div>
                 <div class="token-card">
                     <div class="token-name">TRX/USDT</div>
+                    <div class="token-type">Standard</div>
+                </div>
+                <div class="token-card">
+                    <div class="token-name">ATOM/USDT</div>
                     <div class="token-type">Standard</div>
                 </div>
             </div>
@@ -1665,6 +1876,133 @@
             </div>
         </div>
 
+        <!-- ═══ GPU SMART TRAINER ═══ -->
+        <div class="section-title">GPU Training</div>
+        <div class="section-heading">Smart Trainer V2.0 &ndash; Autonomes KI-Training</div>
+
+        <div class="trainer-hero">
+            <div class="th-icon">&#128293;</div>
+            <div class="th-name">SMART TRAINER V2.0</div>
+            <div class="th-sub">Multi-Phase GPU Training mit Knowledge Transfer &middot; XLA-kompiliert auf NVIDIA Jetson Orin NX</div>
+
+            <div class="trainer-stats">
+                <div class="trainer-stat">
+                    <div class="ts-num">142</div>
+                    <div class="ts-label">Training Sessions</div>
+                </div>
+                <div class="trainer-stat">
+                    <div class="ts-num">75%</div>
+                    <div class="ts-label">Erfolgsrate</div>
+                </div>
+                <div class="trainer-stat">
+                    <div class="ts-num">240</div>
+                    <div class="ts-label">Aktive Checkpoints</div>
+                </div>
+                <div class="trainer-stat">
+                    <div class="ts-num">365 MB</div>
+                    <div class="ts-label">Model Storage</div>
+                </div>
+                <div class="trainer-stat">
+                    <div class="ts-num">0.97</div>
+                    <div class="ts-label">Best Score</div>
+                </div>
+                <div class="trainer-stat">
+                    <div class="ts-num">13</div>
+                    <div class="ts-label">Tokens trainiert</div>
+                </div>
+            </div>
+
+            <div class="trainer-live">
+                <span class="tl-dot"></span>
+                GPU TRAINING AKTIV &middot; TCN V4.0 SUPREME &middot; 70.059 Parameter &middot; XLA Compiled &middot; CUDA 8.7
+            </div>
+        </div>
+
+        <div class="features" style="margin-bottom: 40px;">
+            <div class="feature">
+                <div class="feature-icon">&#128257;</div>
+                <h3>Knowledge Transfer</h3>
+                <p>43% aller Trainings nutzen Knowledge Transfer: Das beste Vorg&auml;nger-Modell wird als Startpunkt geladen. Fine-Tuning mit halbierter Learning Rate f&uuml;r schnellere Konvergenz.</p>
+                <div class="feature-detail">2.383 KT-Trials &middot; Similarity: 1.00 &middot; Fine-Tune LR: /2</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#128200;</div>
+                <h3>Multi-Phase Training</h3>
+                <p>Intelligente Priorisierung: BAD_ACCURACY Tokens werden zuerst trainiert, dann GPU_ONLY_BAD, dann REFINE. Automatische Convergence Detection stoppt Training bei Plateau.</p>
+                <div class="feature-detail">Phases: LEGACY &rarr; REFINE_KT &middot; Auto-Stop</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#9881;</div>
+                <h3>TCN V4.0 SUPREME</h3>
+                <p>Modernste Architektur: Gated Linear Units (GLU), Stochastic Depth, Learned Position Encoding, Relative Position Bias und Pre-Layer Normalization.</p>
+                <div class="feature-detail">GLU: on &middot; StochDepth: 0.1 &middot; RelPosBias: on &middot; PreNorm: on</div>
+            </div>
+        </div>
+
+        <!-- ═══ TRAINING BLOCKCHAIN ═══ -->
+        <div class="section-title">Blockchain</div>
+        <div class="section-heading">Training Blockchain &ndash; Unver&auml;nderliche Wissenshistorie</div>
+
+        <div class="blockchain-hero">
+            <div class="bh-icon">&#9939;</div>
+            <div class="bh-name">TRAINING BLOCKCHAIN</div>
+            <div class="bh-sub">Jeder einzelne Training-Trial wird als SHA-256 verketteter Block gespeichert &ndash; unver&auml;nderlich und nachvollziehbar</div>
+
+            <div class="blockchain-stats">
+                <div class="blockchain-stat">
+                    <div class="bs-num">5.588</div>
+                    <div class="bs-label">Blocks</div>
+                </div>
+                <div class="blockchain-stat">
+                    <div class="bs-num">264k</div>
+                    <div class="bs-label">Zeilen Ledger</div>
+                </div>
+                <div class="blockchain-stat">
+                    <div class="bs-num">2.383</div>
+                    <div class="bs-label">Knowledge Transfer</div>
+                </div>
+                <div class="blockchain-stat">
+                    <div class="bs-num">93.1%</div>
+                    <div class="bs-label">&empty; Score</div>
+                </div>
+                <div class="blockchain-stat">
+                    <div class="bs-num">13</div>
+                    <div class="bs-label">Tokens</div>
+                </div>
+                <div class="blockchain-stat">
+                    <div class="bs-num">SHA-256</div>
+                    <div class="bs-label">Hash-Algorithmus</div>
+                </div>
+            </div>
+
+            <div class="blockchain-sample">
+                <span class="bs-sym">Block #1</span> <span class="bs-arrow">&rarr;</span> <span class="bs-sym">BTC_USDT</span> Score: <span class="bs-score">0.8240</span> Hash: <span class="bs-hash">bd23b26a...d438b16d</span><br>
+                <span class="bs-sym">Block #2</span> <span class="bs-arrow">&rarr;</span> <span class="bs-sym">BTC_USDT</span> Score: <span class="bs-score">0.8879</span> Hash: <span class="bs-hash">7f620f92...8745ca0a</span><br>
+                <span class="bs-sym">Block #3</span> <span class="bs-arrow">&rarr;</span> <span class="bs-sym">BTC_USDT</span> Score: <span class="bs-score">0.7334</span> Hash: <span class="bs-hash">4adabf90...0cfc6725</span><br>
+                <span class="bs-arrow">...</span><br>
+                <span class="bs-sym">Block #5588</span> <span class="bs-arrow">&rarr;</span> <span class="bs-sym">BNB_USDT</span> Score: <span class="bs-score">0.9365</span> <span style="color: #40d8b0;">&#9679; LIVE</span>
+            </div>
+
+            <div class="blockchain-features">
+                <div class="bf-item">
+                    <h5>&#128279; Hash-Verkettung</h5>
+                    <p>Jeder Block enth&auml;lt den SHA-256 Hash seines Vorg&auml;ngers. Manipulation eines einzelnen Blocks bricht die gesamte Kette.</p>
+                </div>
+                <div class="bf-item">
+                    <h5>&#128202; Hyperparameter-Record</h5>
+                    <p>23+ Parameter pro Block: Learning Rate, Dropout, Filters, Sequence Length, Focal Loss, Attention &ndash; vollst&auml;ndige Reproduzierbarkeit.</p>
+                </div>
+                <div class="bf-item">
+                    <h5>&#129504; Evolution sichtbar</h5>
+                    <p>Die Blockchain zeigt die gesamte Modell-Evolution: Von 82% Score im Genesis-Block zu 97%+ nach 5.588 Trials &ndash; sichtbarer KI-Fortschritt.</p>
+                </div>
+                <div class="bf-item">
+                    <h5>&#128640; Verteilte Herkunft</h5>
+                    <p>Blocks kommen von GPU (Jetson), CPU (Pi Workers) und SPY-Feedback. Jede Quelle ist im Ledger identifizierbar.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- ═══ ROADMAP ═══ -->
         <div class="section-title">Roadmap</div>
         <div class="section-heading">Was kommt als N&auml;chstes</div>
@@ -1675,7 +2013,7 @@
                     <div class="rm-icon">&#10003;</div>
                     <div class="rm-text">
                         <div class="rm-title">Verteiltes TCN Training</div>
-                        <div class="rm-desc">5 Nodes, 300+ Modelle, GPU-beschleunigt, Ensemble Intelligence</div>
+                        <div class="rm-desc">5 Nodes, 240+ Modelle, 5.588 Blockchain-Blocks, GPU-beschleunigt</div>
                     </div>
                     <div class="rm-status s-done">Live</div>
                 </div>
