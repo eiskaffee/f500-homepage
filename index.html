@@ -714,6 +714,203 @@
             margin-top: 2px;
         }
 
+        /* ═══ ROADMAP ═══ */
+        .roadmap {
+            margin-bottom: 50px;
+        }
+
+        .roadmap-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .roadmap-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            border-left: 3px solid rgba(100, 100, 140, 0.15);
+        }
+
+        .roadmap-item.done {
+            border-left-color: rgba(0, 200, 120, 0.3);
+        }
+
+        .roadmap-item.wip {
+            border-left-color: rgba(255, 180, 40, 0.3);
+        }
+
+        .roadmap-item.planned {
+            border-left-color: rgba(124, 92, 255, 0.3);
+        }
+
+        .rm-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .rm-text {
+            flex: 1;
+        }
+
+        .rm-text .rm-title {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #b0b0cc;
+        }
+
+        .rm-text .rm-desc {
+            font-size: 0.72rem;
+            color: #666688;
+            margin-top: 2px;
+        }
+
+        .rm-status {
+            font-size: 0.62rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            flex-shrink: 0;
+        }
+
+        .rm-status.s-done {
+            background: rgba(0, 200, 120, 0.1);
+            color: #40d8b0;
+        }
+
+        .rm-status.s-wip {
+            background: rgba(255, 180, 40, 0.1);
+            color: #ffb428;
+        }
+
+        .rm-status.s-planned {
+            background: rgba(124, 92, 255, 0.1);
+            color: #b49cff;
+        }
+
+        /* ═══ FUNDING BOX ═══ */
+        .funding-box {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(0, 180, 60, 0.04), rgba(74, 158, 255, 0.04));
+            border: 1px solid rgba(0, 180, 60, 0.1);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .funding-box .fb-label {
+            font-size: 0.7rem;
+            color: #5566aa;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .funding-box .fb-hw {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #d0d0e8;
+            margin-bottom: 4px;
+        }
+
+        .funding-box .fb-specs {
+            font-size: 0.72rem;
+            color: #666688;
+            font-family: 'Consolas', 'Monaco', monospace;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            max-width: 500px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            margin: 0 auto 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00c878, #4a9eff);
+            border-radius: 10px;
+            transition: width 1s ease;
+            min-width: 2px;
+        }
+
+        .progress-text {
+            font-size: 0.82rem;
+            color: #8888aa;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .progress-text strong {
+            color: #00c878;
+        }
+
+        .funding-box .fb-note {
+            font-size: 0.68rem;
+            color: #556678;
+            margin-top: 14px;
+        }
+
+        /* ═══ SUPPORT SECTION ═══ */
+        .support-section {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .support-methods {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .support-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .support-btn:hover {
+            opacity: 0.85;
+            transform: translateY(-1px);
+        }
+
+        .support-btn.paypal {
+            background: linear-gradient(135deg, #0070ba, #003087);
+            color: #fff;
+        }
+
+        .support-btn.crypto {
+            background: rgba(255, 180, 40, 0.1);
+            border: 1px solid rgba(255, 180, 40, 0.2);
+            color: #ffb428;
+        }
+
+        .support-note {
+            font-size: 0.72rem;
+            color: #556678;
+            margin-top: 16px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* ═══ SALE ═══ */
         .sale-section {
             border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -808,6 +1005,8 @@
             .science-refs { grid-template-columns: 1fr; }
             .chain-visual { gap: 6px; }
             .cognitive-hero .ch-stats { gap: 16px; }
+            .rm-status { font-size: 0.55rem; }
+            .support-methods { flex-direction: column; align-items: center; }
             header { padding-top: 40px; }
             .sale-badge { padding: 28px 24px; }
             .sale-price { font-size: 1.8rem; }
@@ -1401,6 +1600,95 @@
             </div>
         </div>
 
+        <!-- ═══ ROADMAP ═══ -->
+        <div class="section-title">Roadmap</div>
+        <div class="section-heading">Was kommt als N&auml;chstes</div>
+
+        <div class="roadmap">
+            <div class="roadmap-items">
+                <div class="roadmap-item done">
+                    <div class="rm-icon">&#10003;</div>
+                    <div class="rm-text">
+                        <div class="rm-title">Verteiltes TCN Training</div>
+                        <div class="rm-desc">5 Nodes, 300+ Modelle, GPU-beschleunigt, Ensemble Intelligence</div>
+                    </div>
+                    <div class="rm-status s-done">Live</div>
+                </div>
+                <div class="roadmap-item done">
+                    <div class="rm-icon">&#10003;</div>
+                    <div class="rm-text">
+                        <div class="rm-title">Multi-Agent Prediction Network</div>
+                        <div class="rm-desc">8 SPY-Agents, Consensus Scoring, 5 lokal + 3 extern &uuml;ber Internet</div>
+                    </div>
+                    <div class="rm-status s-done">Live</div>
+                </div>
+                <div class="roadmap-item done">
+                    <div class="rm-icon">&#10003;</div>
+                    <div class="rm-text">
+                        <div class="rm-title">Kognitives Meta-System DAS ICH V4.0</div>
+                        <div class="rm-desc">Bayessche Selbst-Modellierung, Wissens-Blockchain, autonome Reflexion</div>
+                    </div>
+                    <div class="rm-status s-done">Live</div>
+                </div>
+                <div class="roadmap-item wip">
+                    <div class="rm-icon">&#9881;</div>
+                    <div class="rm-text">
+                        <div class="rm-title">Long &amp; Short Perpetual Futures</div>
+                        <div class="rm-desc">Vollst&auml;ndige Bidirektionale Strategien &ndash; Profitieren in jeder Marktlage</div>
+                    </div>
+                    <div class="rm-status s-wip">In Arbeit</div>
+                </div>
+                <div class="roadmap-item planned">
+                    <div class="rm-icon">&#127919;</div>
+                    <div class="rm-text">
+                        <div class="rm-title">Eigenes Trading-LLM</div>
+                        <div class="rm-desc">Large Language Model f&uuml;r Marktanalyse, News-Interpretation und Regime-Erkennung</div>
+                    </div>
+                    <div class="rm-status s-planned">Geplant</div>
+                </div>
+                <div class="roadmap-item planned">
+                    <div class="rm-icon">&#127919;</div>
+                    <div class="rm-text">
+                        <div class="rm-title">LLM-gest&uuml;tzte Marktregime-Erkennung</div>
+                        <div class="rm-desc">Echtzeit-Analyse von Nachrichten, Social Media und On-Chain Daten via LLM</div>
+                    </div>
+                    <div class="rm-status s-planned">Geplant</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ HARDWARE FUNDING GOAL ═══ -->
+        <div class="funding-box">
+            <div class="fb-label">N&auml;chstes Hardware-Ziel</div>
+            <div class="fb-hw">NVIDIA DGX Spark &middot; GB10 Blackwell</div>
+            <div class="fb-specs">128 GB Unified Memory &middot; 4 TB SSD &middot; 1000 TOPS AI &middot; NVIDIA DGX OS</div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 0.5%;"></div>
+            </div>
+            <div class="progress-text"><strong>0 EUR</strong> / 3.000 EUR gesammelt</div>
+            <div class="fb-note">F&uuml;r die Entwicklung eines eigenen Trading-LLM &ndash; 100% flie&szlig;t in Hardware f&uuml;r KI-Forschung</div>
+        </div>
+
+        <!-- ═══ SUPPORT ═══ -->
+        <div class="support-section">
+            <div class="section-title">Unterst&uuml;tzung</div>
+            <div class="section-heading">Dieses Projekt weiterentwickeln</div>
+            <p style="font-size: 0.84rem; color: #8888aa; max-width: 600px; margin: 0 auto 20px; text-align: center;">
+                Das F500 System wird als privates Forschungsprojekt entwickelt.
+                Jede Unterst&uuml;tzung hilft, das n&auml;chste Hardware-Upgrade zu erreichen und
+                die KI-Forschung voranzutreiben.
+            </p>
+            <div class="support-methods">
+                <!-- PayPal Link hier einsetzen sobald erstellt -->
+                <a href="https://paypal.me/DEINLINK" class="support-btn paypal" target="_blank" rel="noopener">
+                    &#128179; PayPal Spende
+                </a>
+            </div>
+            <div class="support-note">
+                Jeder Beitrag wird transparent dokumentiert. Das Ziel: NVIDIA DGX Spark f&uuml;r ein eigenes Trading-LLM.
+            </div>
+        </div>
+
         <!-- ═══ STATUS ═══ -->
         <div class="status">
             <div class="status-badge">
@@ -1412,11 +1700,12 @@
         <!-- ═══ SALE ═══ -->
         <div class="sale-section">
             <div class="sale-badge">
-                <div class="sale-title">Diese Domain steht zum Verkauf</div>
+                <div class="sale-title">Warum diese Domain zum Verkauf steht</div>
                 <div class="sale-price">12.000 EUR</div>
                 <div class="sale-info">
-                    Die Domain f500.de ist in Privatbesitz und wird
-                    zum Festpreis angeboten. Sichere Abwicklung &uuml;ber Sedo.com als Treuh&auml;nder.
+                    Der Erl&ouml;s aus dem Domain-Verkauf flie&szlig;t direkt in die Weiterentwicklung
+                    des F500 Trading Systems &ndash; insbesondere in das GPU-Upgrade f&uuml;r die
+                    Entwicklung eines eigenen Trading-LLM. Sichere Abwicklung &uuml;ber Sedo.com.
                 </div>
                 <a href="https://sedo.com/search/details/?domain=f500.de&language=d" class="sale-link" target="_blank" rel="noopener">
                     Jetzt auf Sedo.com kaufen
