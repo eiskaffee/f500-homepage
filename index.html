@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>F500 Trading System | AI-Powered Distributed Market Intelligence</title>
-    <meta name="description" content="F500 - Verteiltes KI-Handelssystem mit TCN Neural Networks, Ensemble Learning und Multi-Agent Prediction Network. 20 Jahre Entwicklung.">
+    <meta name="description" content="F500 - Verteiltes KI-Handelssystem mit TCN Neural Networks, XGBoost ML, Ensemble Learning, Multi-Agent Prediction und autonomem Trading Bot. 38.000 Zeilen Production Code.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -449,35 +449,269 @@
             50% { opacity: 0.3; }
         }
 
-        /* ═══ TIMELINE ═══ */
-        .timeline {
+        /* ═══ BOT DETAIL CARDS ═══ */
+        .bot-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin-bottom: 70px;
         }
 
-        .timeline-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
+        .bot-card {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 24px;
         }
 
-        .timeline-item {
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 2px solid rgba(74, 158, 255, 0.2);
-            border-radius: 0 8px 8px 0;
-        }
-
-        .timeline-year {
-            font-size: 0.7rem;
+        .bot-card h4 {
+            font-size: 0.82rem;
             font-weight: 600;
-            color: #4a9eff;
+            color: #b0b0dd;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bot-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bot-card li {
+            font-size: 0.78rem;
+            color: #777799;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bot-card li:last-child {
+            border-bottom: none;
+        }
+
+        .bot-card .val {
+            font-family: 'Consolas', 'Monaco', monospace;
+            color: #9090bb;
+            font-size: 0.75rem;
+        }
+
+        /* ═══ CODE STATS BAR ═══ */
+        .code-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 70px;
+        }
+
+        .code-stat {
+            text-align: center;
+            padding: 16px 10px;
+            background: rgba(124, 92, 255, 0.04);
+            border: 1px solid rgba(124, 92, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .code-stat-num {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #b49cff;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .code-stat-label {
+            font-size: 0.65rem;
+            color: #666688;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* ═══ METHODOLOGY TAGS ═══ */
+        .method-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 70px;
+        }
+
+        .method-tag {
+            background: rgba(0, 200, 160, 0.06);
+            border: 1px solid rgba(0, 200, 160, 0.12);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 0.72rem;
+            color: #40d8b0;
+        }
+
+        /* ═══ DAS ICH - COGNITIVE META SYSTEM ═══ */
+        .cognitive-hero {
+            margin-bottom: 40px;
+            padding: 32px;
+            background: linear-gradient(135deg, rgba(170, 106, 255, 0.06), rgba(74, 158, 255, 0.04));
+            border: 1px solid rgba(170, 106, 255, 0.12);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .cognitive-hero .ch-icon {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+        }
+
+        .cognitive-hero .ch-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #c0a0ff;
             letter-spacing: 2px;
         }
 
-        .timeline-text {
-            font-size: 0.8rem;
-            color: #9999bb;
-            margin-top: 4px;
+        .cognitive-hero .ch-sub {
+            font-size: 0.88rem;
+            color: #8888aa;
+            margin-top: 6px;
+        }
+
+        .cognitive-hero .ch-stats {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .cognitive-hero .ch-stat {
+            text-align: center;
+        }
+
+        .cognitive-hero .ch-stat-num {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #b49cff;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .cognitive-hero .ch-stat-label {
+            font-size: 0.62rem;
+            color: #666688;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cognitive-modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+
+        .cog-module {
+            padding: 18px;
+            background: rgba(170, 106, 255, 0.03);
+            border: 1px solid rgba(170, 106, 255, 0.08);
+            border-radius: 10px;
+        }
+
+        .cog-module h4 {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #c0a0ff;
+            margin-bottom: 6px;
+        }
+
+        .cog-module p {
+            font-size: 0.72rem;
+            color: #777799;
+            line-height: 1.5;
+        }
+
+        .cog-module .cog-detail {
+            margin-top: 8px;
+            font-size: 0.68rem;
+            color: #556688;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .chain-visual {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4px;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.015);
+            border-radius: 12px;
+        }
+
+        .chain-block {
+            padding: 8px 12px;
+            background: rgba(170, 106, 255, 0.06);
+            border: 1px solid rgba(170, 106, 255, 0.15);
+            border-radius: 6px;
+            font-size: 0.68rem;
+            text-align: center;
+        }
+
+        .chain-block .cb-id {
+            color: #b49cff;
+            font-weight: 600;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .chain-block .cb-title {
+            color: #8888aa;
+            font-size: 0.62rem;
+            margin-top: 2px;
+        }
+
+        .chain-block.cb-validated {
+            border-color: rgba(0, 200, 120, 0.2);
+            background: rgba(0, 200, 120, 0.04);
+        }
+
+        .chain-block.cb-validated .cb-id {
+            color: #40d8b0;
+        }
+
+        .chain-arrow {
+            color: #333355;
+            font-size: 0.7rem;
+        }
+
+        .science-refs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 70px;
+        }
+
+        .science-ref {
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.015);
+            border-left: 2px solid rgba(170, 106, 255, 0.2);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .science-ref .sr-name {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #b0b0cc;
+        }
+
+        .science-ref .sr-year {
+            font-size: 0.62rem;
+            color: #556688;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+
+        .science-ref .sr-concept {
+            font-size: 0.68rem;
+            color: #777799;
+            margin-top: 2px;
         }
 
         /* ═══ SALE ═══ */
@@ -568,7 +802,12 @@
             .pipeline-step { border-radius: 6px !important; }
             .tokens-grid { grid-template-columns: repeat(3, 1fr); }
             .metrics { grid-template-columns: 1fr; }
-            .timeline-items { grid-template-columns: 1fr; }
+            .bot-details { grid-template-columns: 1fr; }
+            .code-stats { grid-template-columns: repeat(3, 1fr); }
+            .cognitive-modules { grid-template-columns: 1fr; }
+            .science-refs { grid-template-columns: 1fr; }
+            .chain-visual { gap: 6px; }
+            .cognitive-hero .ch-stats { gap: 16px; }
             header { padding-top: 40px; }
             .sale-badge { padding: 28px 24px; }
             .sale-price { font-size: 1.8rem; }
@@ -588,8 +827,8 @@
 
         <p class="intro">
             Ein vollautomatisches, verteiltes KI-Handelssystem mit Temporal Convolutional Networks,
-            Multi-Agent Prediction und Ensemble Learning. Entwickelt und betrieben als
-            privates Forschungsprojekt seit 2006 &ndash; 20 Jahre kontinuierliche Weiterentwicklung.
+            Multi-Agent Prediction, Ensemble Learning und autonomem Trading Bot.
+            38.000 Zeilen Production Code &middot; 14 Module &middot; Live Trading mit Perpetual Futures.
         </p>
 
         <!-- ═══ KEY STATS ═══ -->
@@ -611,12 +850,12 @@
                 <div class="stat-label">Krypto-Paare</div>
             </div>
             <div class="stat">
-                <div class="stat-number">96</div>
-                <div class="stat-label">Trainings / Tag</div>
+                <div class="stat-number">38k</div>
+                <div class="stat-label">Lines of Code</div>
             </div>
             <div class="stat">
                 <div class="stat-number">24/7</div>
-                <div class="stat-label">Autonomous</div>
+                <div class="stat-label">Live Trading</div>
             </div>
         </div>
 
@@ -861,49 +1100,304 @@
         <div class="tech-section">
             <h2>Technologie-Stack</h2>
             <div class="tech-tags">
-                <span class="tech-tag">Python 3</span>
+                <span class="tech-tag">Python 3 / asyncio</span>
                 <span class="tech-tag">TensorFlow / Keras</span>
+                <span class="tech-tag">XGBoost</span>
+                <span class="tech-tag">River ML (Streaming)</span>
                 <span class="tech-tag">Optuna</span>
+                <span class="tech-tag">CCXT Exchange Library</span>
                 <span class="tech-tag">NVIDIA Jetson Orin NX</span>
                 <span class="tech-tag">Raspberry Pi 5 Cluster</span>
-                <span class="tech-tag">REST API</span>
-                <span class="tech-tag">HTTPS / TLS</span>
-                <span class="tech-tag">SQLite</span>
+                <span class="tech-tag">WebSocket V2 API</span>
+                <span class="tech-tag">REST API / HTTPS</span>
+                <span class="tech-tag">SQLite WAL Mode</span>
                 <span class="tech-tag">systemd Services</span>
                 <span class="tech-tag">Distributed Computing</span>
                 <span class="tech-tag">Ensemble Methods</span>
                 <span class="tech-tag">TCN / Attention</span>
+                <span class="tech-tag">Numba JIT</span>
+                <span class="tech-tag">pandas_ta</span>
                 <span class="tech-tag">DynDNS</span>
                 <span class="tech-tag">Cron Automation</span>
+                <span class="tech-tag">Prometheus Metrics</span>
             </div>
         </div>
 
-        <!-- ═══ TIMELINE ═══ -->
-        <div class="section-title">Geschichte</div>
-        <div class="section-heading">20 Jahre Entwicklung</div>
+        <!-- ═══ TRADING BOT ═══ -->
+        <div class="section-title">Trading Bot</div>
+        <div class="section-heading">ProCube &ndash; Autonome Execution Engine</div>
 
-        <div class="timeline">
-            <div class="timeline-items">
-                <div class="timeline-item">
-                    <div class="timeline-year">2006</div>
-                    <div class="timeline-text">Projektstart. Erste automatisierte Handelssignale.</div>
+        <div class="code-stats">
+            <div class="code-stat">
+                <div class="code-stat-num">38k</div>
+                <div class="code-stat-label">Lines of Code</div>
+            </div>
+            <div class="code-stat">
+                <div class="code-stat-num">14</div>
+                <div class="code-stat-label">Module</div>
+            </div>
+            <div class="code-stat">
+                <div class="code-stat-num">6.1k</div>
+                <div class="code-stat-label">Main.py Lines</div>
+            </div>
+            <div class="code-stat">
+                <div class="code-stat-num">143+</div>
+                <div class="code-stat-label">Bug Fixes Tracked</div>
+            </div>
+            <div class="code-stat">
+                <div class="code-stat-num">59</div>
+                <div class="code-stat-label">Tage Live Trading</div>
+            </div>
+            <div class="code-stat">
+                <div class="code-stat-num">8.1 GB</div>
+                <div class="code-stat-label">Production Logs</div>
+            </div>
+        </div>
+
+        <div class="bot-details">
+            <div class="bot-card">
+                <h4>&#128640; Strategy Engine</h4>
+                <ul>
+                    <li><span>Strategy</span> <span class="val">ProSpion v6.12.0</span></li>
+                    <li><span>Indicators</span> <span class="val">15+ (RSI, MACD, BB, ATR...)</span></li>
+                    <li><span>Murphy Confluence</span> <span class="val">5-Component Scoring</span></li>
+                    <li><span>Market Regimes</span> <span class="val">BULL / BEAR / RANGE / VOL</span></li>
+                    <li><span>OrderBook</span> <span class="val">WebSocket &lt;100ms</span></li>
+                    <li><span>Liquidity Index</span> <span class="val">5-Factor LWI Filter</span></li>
+                </ul>
+            </div>
+            <div class="bot-card">
+                <h4>&#129302; Machine Learning</h4>
+                <ul>
+                    <li><span>XGBoost Models</span> <span class="val">12 (per Symbol)</span></li>
+                    <li><span>Online Learning</span> <span class="val">River Streaming ML</span></li>
+                    <li><span>Drift Detection</span> <span class="val">ADWIN Algorithm</span></li>
+                    <li><span>Anomaly Detection</span> <span class="val">Half-Space Trees</span></li>
+                    <li><span>Labeling</span> <span class="val">Triple Barrier (AFML)</span></li>
+                    <li><span>Retraining</span> <span class="val">Auto 6h Cycle</span></li>
+                </ul>
+            </div>
+            <div class="bot-card">
+                <h4>&#128737; Risk Management</h4>
+                <ul>
+                    <li><span>Position Sizing</span> <span class="val">Kelly + Risk Parity</span></li>
+                    <li><span>Circuit Breaker</span> <span class="val">3-State Pattern</span></li>
+                    <li><span>Max Exposure</span> <span class="val">30% Portfolio</span></li>
+                    <li><span>Stop-Loss</span> <span class="val">ML Override Engine</span></li>
+                    <li><span>SL Patterns</span> <span class="val">13 erkannte Muster</span></li>
+                    <li><span>Loss Backoff</span> <span class="val">50% Auto-Reduktion</span></li>
+                </ul>
+            </div>
+            <div class="bot-card">
+                <h4>&#9881; Order Execution</h4>
+                <ul>
+                    <li><span>Exchange</span> <span class="val">Bitget Perpetual Futures</span></li>
+                    <li><span>Margin Mode</span> <span class="val">Isolated</span></li>
+                    <li><span>CEI Validation</span> <span class="val">Pre-Flight Checks</span></li>
+                    <li><span>Fill Confirm</span> <span class="val">Exponential Backoff</span></li>
+                    <li><span>Slippage Guard</span> <span class="val">max 0.5%</span></li>
+                    <li><span>Position Sync</span> <span class="val">5min Reconciliation</span></li>
+                </ul>
+            </div>
+            <div class="bot-card">
+                <h4>&#128202; Resilience</h4>
+                <ul>
+                    <li><span>Error Recovery</span> <span class="val">6 Strategy Types</span></li>
+                    <li><span>Memory Manager</span> <span class="val">500MB Threshold</span></li>
+                    <li><span>Instance Lock</span> <span class="val">PID File Guard</span></li>
+                    <li><span>Latency Tracking</span> <span class="val">p50/p95/p99</span></li>
+                    <li><span>Error Budget</span> <span class="val">SLO 99.5%</span></li>
+                    <li><span>Security Score</span> <span class="val">7 Hardening Layers</span></li>
+                </ul>
+            </div>
+            <div class="bot-card">
+                <h4>&#128451; Data &amp; Storage</h4>
+                <ul>
+                    <li><span>Database</span> <span class="val">SQLite WAL Mode</span></li>
+                    <li><span>Tables</span> <span class="val">12 (Positions, ML, Audit)</span></li>
+                    <li><span>Schema Version</span> <span class="val">2.1.0</span></li>
+                    <li><span>Market Cache</span> <span class="val">1.7 GB OHLCV</span></li>
+                    <li><span>Audit Trail</span> <span class="val">JSONL per Trade</span></li>
+                    <li><span>Backups</span> <span class="val">38 versionierte Snapshots</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ═══ SCIENTIFIC METHODS ═══ -->
+        <div class="section-title">Methodik</div>
+        <div class="section-heading">Wissenschaftliche Grundlagen</div>
+
+        <div class="method-tags">
+            <span class="method-tag">Murphy Technical Analysis</span>
+            <span class="method-tag">L&oacute;pez de Prado AFML</span>
+            <span class="method-tag">Ernest Chan Kelly Criterion</span>
+            <span class="method-tag">Ray Dalio Risk Parity</span>
+            <span class="method-tag">Triple Barrier Labeling</span>
+            <span class="method-tag">Purged Cross-Validation</span>
+            <span class="method-tag">ADWIN Drift Detection</span>
+            <span class="method-tag">Hoeffding Trees</span>
+            <span class="method-tag">Bayesian Optimization</span>
+            <span class="method-tag">Ensemble Voting</span>
+            <span class="method-tag">Consensus Scoring</span>
+            <span class="method-tag">Knowledge Transfer</span>
+        </div>
+
+        <!-- ═══ DAS ICH - COGNITIVE META SYSTEM ═══ -->
+        <div class="section-title">Kognition</div>
+        <div class="section-heading">DAS ICH &ndash; Kognitives Meta-System</div>
+
+        <div class="cognitive-hero">
+            <div class="ch-icon">&#129504;</div>
+            <div class="ch-name">DAS ICH V4.0</div>
+            <div class="ch-sub">Self-Aware Cognitive Layer &middot; Das System kennt seine eigenen St&auml;rken und Schw&auml;chen</div>
+            <div class="ch-stats">
+                <div class="ch-stat">
+                    <div class="ch-stat-num">14.6k</div>
+                    <div class="ch-stat-label">Lines of Code</div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2015</div>
-                    <div class="timeline-text">Machine Learning Integration. Erste neuronale Netze.</div>
+                <div class="ch-stat">
+                    <div class="ch-stat-num">8</div>
+                    <div class="ch-stat-label">Kognitive Module</div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2022</div>
-                    <div class="timeline-text">TCN-Architektur. Verteiltes Training auf Edge-Hardware.</div>
+                <div class="ch-stat">
+                    <div class="ch-stat-num">766</div>
+                    <div class="ch-stat-label">Episoden im Ged&auml;chtnis</div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2024</div>
-                    <div class="timeline-text">Multi-Agent SPY System. Ensemble Intelligence.</div>
+                <div class="ch-stat">
+                    <div class="ch-stat-num">621</div>
+                    <div class="ch-stat-label">Reale Trades synced</div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-year">2026</div>
-                    <div class="timeline-text">300+ Modelle. 8 SPYs. Smart Trainer V2.0. Vollautonomer Betrieb.</div>
+                <div class="ch-stat">
+                    <div class="ch-stat-num">8</div>
+                    <div class="ch-stat-label">Wissens-Blocks</div>
                 </div>
+                <div class="ch-stat">
+                    <div class="ch-stat-num">0:00</div>
+                    <div class="ch-stat-label">T&auml;gliche Reflexion</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cognitive-modules">
+            <div class="cog-module">
+                <h4>&#128161; Selbst-Modell</h4>
+                <p>Bayessche Beta-Verteilungen f&uuml;r jede Kombination aus Symbol, Regime und Timeframe. Das System wei&szlig; mathematisch, wo es gut ist und wo nicht.</p>
+                <div class="cog-detail">Beta(&alpha;,&beta;) Posterior &middot; 7 Regimes &middot; ECE Kalibrierung</div>
+            </div>
+            <div class="cog-module">
+                <h4>&#128218; Episodisches Ged&auml;chtnis</h4>
+                <p>Jeder Trade wird als Episode mit emotionaler Valenz, kausalen Verkn&uuml;pfungen und extrahierten Lektionen gespeichert. Basiert auf Tulving (1972).</p>
+                <div class="cog-detail">766 Episoden &middot; 12 Symbole &middot; SQLite</div>
+            </div>
+            <div class="cog-module">
+                <h4>&#127891; Semantisches Ged&auml;chtnis</h4>
+                <p>Destilliertes Langzeitwissen: 13 Anti-Patterns und Regime-Verhaltensregeln. Versionierte Wissensbasis mit Anwendungsstatistiken.</p>
+                <div class="cog-detail">14 Eintr&auml;ge &middot; 6 Wissenstypen &middot; Auto-Extraktion</div>
+            </div>
+            <div class="cog-module">
+                <h4>&#129504; Metakognition</h4>
+                <p>Denken &uuml;ber Denken. Novelty Detection via Z-Score, mehrstufige Confidence-Anpassung, Introspektions-Engine. Nach Flavell (1979).</p>
+                <div class="cog-detail">75% &rarr; 54.5% Confidence Pipeline</div>
+            </div>
+            <div class="cog-module">
+                <h4>&#128336; Ebbinghaus-Kurve</h4>
+                <p>Exponentielles Vergessen: R = S&#8320; &middot; 0.5^(t/&tau;). Spaced Repetition nach SM-2. Emotionale Erinnerungen halten 30% l&auml;nger.</p>
+                <div class="cog-detail">Halbwertszeit: 30d &middot; 5 Wichtigkeitsstufen</div>
+            </div>
+            <div class="cog-module">
+                <h4>&#128279; Wissens-Chain</h4>
+                <p>Blockchain-artige, SHA-256 verkettete Wissensdatenbank. Hypothesen werden validiert oder widerlegt &ndash; unverf&auml;lschbar.</p>
+                <div class="cog-detail">8 Blocks &middot; Integrit&auml;t: VERIFIZIERT</div>
+            </div>
+            <div class="cog-module">
+                <h4>&#128302; Meta-Ged&auml;chtnis</h4>
+                <p>Ged&auml;chtnis &uuml;ber das Ged&auml;chtnis. Feeling of Knowing, Judgments of Learning, systematische L&uuml;cken-Erkennung. Nach Nelson &amp; Narens (1990).</p>
+                <div class="cog-detail">FOK &middot; JOL &middot; 4 Ged&auml;chtnisbereiche</div>
+            </div>
+            <div class="cog-module">
+                <h4>&#127761; Selbst-Reflexion</h4>
+                <p>Autonome n&auml;chtliche Analyse: Anomalie-Erkennung, temporale Muster, Hypothesen-Validierung. Jeden Tag um Mitternacht.</p>
+                <div class="cog-detail">Cron 0:00 &middot; 5 Analyse-Methoden</div>
+            </div>
+        </div>
+
+        <!-- Wissens-Chain Visualization -->
+        <div class="chain-visual">
+            <div class="chain-block cb-validated">
+                <div class="cb-id">#1 GENESIS</div>
+                <div class="cb-title">DAS ICH erwacht</div>
+            </div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-block cb-validated">
+                <div class="cb-id">#2 &#10003;</div>
+                <div class="cb-title">BTC Underperformer</div>
+            </div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-block">
+                <div class="cb-id">#3</div>
+                <div class="cb-title">XRP/range schwach</div>
+            </div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-block">
+                <div class="cb-id">#4</div>
+                <div class="cb-title">LTC/bear schwach</div>
+            </div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-block">
+                <div class="cb-id">#5</div>
+                <div class="cb-title">SOL/range schwach</div>
+            </div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-block">
+                <div class="cb-id">#6 &#9888;</div>
+                <div class="cb-title">BTC KRITISCH</div>
+            </div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-block">
+                <div class="cb-id">#7</div>
+                <div class="cb-title">BTC/range schwach</div>
+            </div>
+            <div class="chain-arrow">&rarr;</div>
+            <div class="chain-block cb-validated">
+                <div class="cb-id">#8 &#10003;</div>
+                <div class="cb-title">Sonntag = schwach</div>
+            </div>
+        </div>
+
+        <!-- Scientific References -->
+        <div class="section-title">Fundament</div>
+        <div class="section-heading">Wissenschaftliche Grundlagen</div>
+
+        <div class="science-refs">
+            <div class="science-ref">
+                <div class="sr-name">Ebbinghaus</div>
+                <div class="sr-year">1885</div>
+                <div class="sr-concept">Exponentielles Vergessen</div>
+            </div>
+            <div class="science-ref">
+                <div class="sr-name">Tulving</div>
+                <div class="sr-year">1972</div>
+                <div class="sr-concept">Episodisches vs. Semantisches Ged&auml;chtnis</div>
+            </div>
+            <div class="science-ref">
+                <div class="sr-name">Flavell</div>
+                <div class="sr-year">1979</div>
+                <div class="sr-concept">Metakognition Framework</div>
+            </div>
+            <div class="science-ref">
+                <div class="sr-name">Nelson &amp; Narens</div>
+                <div class="sr-year">1990</div>
+                <div class="sr-concept">Metamemory Monitoring</div>
+            </div>
+            <div class="science-ref">
+                <div class="sr-name">L&oacute;pez de Prado</div>
+                <div class="sr-year">2018</div>
+                <div class="sr-concept">Triple Barrier &amp; Meta-Labeling</div>
+            </div>
+            <div class="science-ref">
+                <div class="sr-name">Guo et al.</div>
+                <div class="sr-year">2017</div>
+                <div class="sr-concept">Expected Calibration Error</div>
             </div>
         </div>
 
@@ -911,7 +1405,7 @@
         <div class="status">
             <div class="status-badge">
                 <span class="status-dot"></span>
-                System aktiv seit 2006 &middot; Vollautonomer Betrieb 24/7
+                System Live &middot; Vollautonomer Betrieb 24/7 &middot; Perpetual Futures
             </div>
         </div>
 
@@ -921,7 +1415,7 @@
                 <div class="sale-title">Diese Domain steht zum Verkauf</div>
                 <div class="sale-price">12.000 EUR</div>
                 <div class="sale-info">
-                    Die Domain f500.de ist seit 2006 in Privatbesitz und wird
+                    Die Domain f500.de ist in Privatbesitz und wird
                     zum Festpreis angeboten. Sichere Abwicklung &uuml;ber Sedo.com als Treuh&auml;nder.
                 </div>
                 <a href="https://sedo.com/search/details/?domain=f500.de&language=d" class="sale-link" target="_blank" rel="noopener">
@@ -934,7 +1428,7 @@
         </div>
 
         <footer>
-            &copy; 2006 &ndash; 2026 F500 Trading System &middot; Privatprojekt &middot; 20 Jahre KI-Forschung
+            &copy; 2026 F500 Trading System &middot; Privatprojekt &middot; KI-Forschung &amp; Autonomous Trading
         </footer>
     </div>
 </body>
