@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F500 Trading System | AI-Powered Market Intelligence</title>
+    <meta name="description" content="F500 Trading System - AI-gestütztes Handelssystem mit Machine Learning und neuronalen Netzen für Multi-Asset Marktanalyse.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Subtle animated gradient background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(16, 85, 200, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(100, 40, 200, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(0, 180, 160, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, #4a9eff, #7c5cff, #00c9a7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-sub {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #8888aa;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-top: -4px;
+        }
+
+        .tagline {
+            margin-top: 24px;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #a0a0c0;
+        }
+
+        /* Divider line */
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #4a9eff, #7c5cff);
+            margin: 40px auto;
+            border-radius: 2px;
+        }
+
+        /* Main content */
+        .intro {
+            text-align: center;
+            font-size: 1.05rem;
+            color: #9999bb;
+            max-width: 650px;
+            margin: 0 auto 50px;
+        }
+
+        /* Feature grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 28px;
+            transition: border-color 0.3s;
+        }
+
+        .feature:hover {
+            border-color: rgba(74, 158, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .feature h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #d0d0e8;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 0.88rem;
+            color: #777799;
+            line-height: 1.5;
+        }
+
+        /* Tech stack */
+        .tech-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .tech-section h2 {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #6666888;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 6px 16px;
+            font-size: 0.82rem;
+            color: #8888aa;
+        }
+
+        /* Status bar */
+        .status {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 200, 120, 0.08);
+            border: 1px solid rgba(0, 200, 120, 0.15);
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            color: #00c878;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #00c878;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Sale banner */
+        .sale-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .sale-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.1), rgba(124, 92, 255, 0.1));
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            border-radius: 12px;
+            padding: 30px 40px;
+            max-width: 500px;
+        }
+
+        .sale-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #c0c0e0;
+            margin-bottom: 10px;
+        }
+
+        .sale-price {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #4a9eff, #7c5cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .sale-info {
+            font-size: 0.88rem;
+            color: #7777999;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .sale-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #4a9eff, #7c5cff);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            margin-bottom: 12px;
+        }
+
+        .sale-link:hover {
+            opacity: 0.85;
+        }
+
+        .sale-contact {
+            display: block;
+            margin-top: 14px;
+            font-size: 0.82rem;
+            color: #666688;
+        }
+
+        .sale-contact a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+
+        .sale-contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0 40px;
+            font-size: 0.78rem;
+            color: #444466;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .logo { font-size: 2.8rem; }
+            .tagline { font-size: 1.2rem; }
+            .features { grid-template-columns: 1fr; }
+            .sale-badge { padding: 24px 20px; }
+            .sale-price { font-size: 1.6rem; }
+            header { padding-top: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">F500</div>
+            <div class="logo-sub">Trading System</div>
+            <div class="divider"></div>
+            <p class="tagline">AI-Powered Market Intelligence</p>
+        </header>
+
+        <p class="intro">
+            Ein privates Forschungsprojekt im Bereich algorithmischer Handel.
+            Das F500 Trading System nutzt moderne KI-Methoden zur Analyse und
+            Prognose von Finanzmärkten in Echtzeit.
+        </p>
+
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🧠</div>
+                <h3>Neuronale Netze</h3>
+                <p>Temporal Convolutional Networks (TCN) für zeitreihenbasierte Marktprognosen mit hoher Genauigkeit.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Multi-Asset Analyse</h3>
+                <p>Gleichzeitige Überwachung und Analyse mehrerer Märkte und Handelspaare rund um die Uhr.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Edge Computing</h3>
+                <p>Verteilte Architektur mit GPU-beschleunigtem Training und dezentraler Signalverarbeitung.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔬</div>
+                <h3>Ensemble Learning</h3>
+                <p>Kombination hunderter spezialisierter Modelle für robustere Handelsentscheidungen.</p>
+            </div>
+        </div>
+
+        <div class="tech-section">
+            <h2>Technologien</h2>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">NVIDIA Jetson</span>
+                <span class="tech-tag">Raspberry Pi Cluster</span>
+                <span class="tech-tag">Machine Learning</span>
+                <span class="tech-tag">Real-Time Data</span>
+                <span class="tech-tag">REST API</span>
+                <span class="tech-tag">Distributed Computing</span>
+            </div>
+        </div>
+
+        <div class="status">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                System aktiv seit 2006
+            </div>
+        </div>
+
+        <div class="sale-section">
+            <div class="sale-badge">
+                <div class="sale-title">Diese Domain steht zum Verkauf</div>
+                <div class="sale-price">12.000 EUR</div>
+                <div class="sale-info">
+                    Die Domain f500.de ist seit 2006 in Privatbesitz und wird
+                    zum Festpreis angeboten. Sichere Abwicklung über Sedo.com als Treuhänder.
+                </div>
+                <a href="https://sedo.com/search/details/?domain=f500.de&language=d" class="sale-link" target="_blank" rel="noopener">
+                    Jetzt auf Sedo.com kaufen
+                </a>
+                <span class="sale-contact">
+                    Oder direkt per E-Mail: <a href="mailto:peterchm@t-online.de">peterchm@t-online.de</a>
+                </span>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2006 &ndash; 2026 F500 Trading System &middot; Privatprojekt
+        </footer>
+    </div>
+</body>
+</html>
