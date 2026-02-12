@@ -986,6 +986,71 @@
             color: #333355;
         }
 
+        /* ═══ LEGAL PAGES ═══ */
+        .legal-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .legal-nav a {
+            color: #5566aa;
+            text-decoration: none;
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border: 1px solid rgba(85, 102, 170, 0.2);
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .legal-nav a:hover {
+            color: #7788cc;
+            border-color: rgba(85, 102, 170, 0.4);
+        }
+
+        .legal-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 50px 0 30px;
+        }
+
+        .legal-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #c0c0e0;
+            margin-bottom: 24px;
+        }
+
+        .legal-section h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #a0a0cc;
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+
+        .legal-section p, .legal-section li {
+            font-size: 0.82rem;
+            color: #8888aa;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .legal-section ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        .legal-section a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+
+        .legal-section a:hover {
+            text-decoration: underline;
+        }
+
         /* ═══ RESPONSIVE ═══ */
         @media (max-width: 768px) {
             .logo { font-size: 3.2rem; }
@@ -1681,11 +1746,14 @@
             <div class="support-methods">
                 <!-- PayPal Link hier einsetzen sobald erstellt -->
                 <a href="https://paypal.me/DEINLINK" class="support-btn paypal" target="_blank" rel="noopener">
-                    &#128179; PayPal Spende
+                    &#128179; Projekt unterst&uuml;tzen (PayPal)
                 </a>
             </div>
             <div class="support-note">
-                Jeder Beitrag wird transparent dokumentiert. Das Ziel: NVIDIA DGX Spark f&uuml;r ein eigenes Trading-LLM.
+                Jeder Beitrag wird transparent dokumentiert. Das Ziel: NVIDIA DGX Spark f&uuml;r ein eigenes Trading-LLM.<br>
+                <span style="font-size: 0.66rem; color: #445566; margin-top: 6px; display: inline-block;">
+                    Dies ist ein privates Forschungsprojekt. Beitr&auml;ge sind freiwillige Zuwendungen und steuerlich nicht als Spende absetzbar.
+                </span>
             </div>
         </div>
 
@@ -1716,7 +1784,153 @@
             </div>
         </div>
 
+        <!-- ═══ LEGAL: IMPRESSUM ═══ -->
+        <div class="legal-section" id="impressum">
+            <h2>Impressum</h2>
+            <p><strong>Angaben gem&auml;&szlig; &sect; 5 DDG (Digitale-Dienste-Gesetz)</strong></p>
+
+            <h3>Verantwortlich</h3>
+            <p>
+                <!-- ⚠️ PFLICHT: Echte Daten hier einsetzen! -->
+                Peter Chmielewski<br>
+                Westkamp 67<br>
+                44309 Dortmund<br>
+                Deutschland
+            </p>
+
+            <h3>Kontakt</h3>
+            <p>
+                E-Mail: <a href="mailto:peterchm@t-online.de">peterchm@t-online.de</a><br>
+                <!-- ⚠️ PFLICHT: Telefonnummer hier einsetzen! (§5 DDG verlangt schnellen Kontaktweg) -->
+                Telefon: [BITTE TELEFONNUMMER EINSETZEN]
+            </p>
+
+            <h3>Haftungsausschluss</h3>
+            <p>
+                Die Inhalte dieser Webseite wurden mit gr&ouml;&szlig;ter Sorgfalt erstellt.
+                F&uuml;r die Richtigkeit, Vollst&auml;ndigkeit und Aktualit&auml;t der Inhalte
+                kann jedoch keine Gew&auml;hr &uuml;bernommen werden. Als Diensteanbieter sind wir
+                gem&auml;&szlig; &sect; 7 Abs. 1 DDG f&uuml;r eigene Inhalte auf diesen Seiten
+                nach den allgemeinen Gesetzen verantwortlich.
+            </p>
+
+            <h3>Externe Links</h3>
+            <p>
+                Diese Seite enth&auml;lt Links zu externen Webseiten Dritter (Sedo.com, PayPal),
+                auf deren Inhalte wir keinen Einfluss haben. F&uuml;r die Inhalte der verlinkten
+                Seiten ist stets der jeweilige Anbieter verantwortlich.
+            </p>
+        </div>
+
+        <!-- ═══ LEGAL: DATENSCHUTZ ═══ -->
+        <div class="legal-section" id="datenschutz">
+            <h2>Datenschutzerkl&auml;rung</h2>
+
+            <h3>1. Verantwortlicher</h3>
+            <p>
+                Verantwortlicher im Sinne der DSGVO:<br>
+                Peter Chmielewski<br>
+                Westkamp 67<br>
+                44309 Dortmund<br>
+                E-Mail: <a href="mailto:peterchm@t-online.de">peterchm@t-online.de</a>
+            </p>
+
+            <h3>2. Hosting &amp; Server-Log-Dateien</h3>
+            <p>
+                Diese Webseite wird &uuml;ber <strong>GitHub Pages</strong> (GitHub Inc., 88 Colin P Kelly Jr St,
+                San Francisco, CA 94107, USA) gehostet. Beim Aufrufen dieser Seite werden durch den
+                Hosting-Provider automatisch Informationen in Server-Log-Dateien gespeichert, die Ihr
+                Browser &uuml;bermittelt:
+            </p>
+            <ul>
+                <li>IP-Adresse des zugreifenden Ger&auml;ts</li>
+                <li>Datum und Uhrzeit des Zugriffs</li>
+                <li>Name und URL der abgerufenen Datei</li>
+                <li>Verwendeter Browser und Betriebssystem</li>
+                <li>Referrer-URL (zuvor besuchte Seite)</li>
+            </ul>
+            <p>
+                Die Verarbeitung erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>
+                (berechtigtes Interesse an der technischen Bereitstellung und Sicherheit der Webseite).
+                Die Daten werden von GitHub verarbeitet und nicht an uns weitergegeben.
+            </p>
+
+            <h3>3. Daten&uuml;bermittlung in Drittl&auml;nder (USA)</h3>
+            <p>
+                GitHub Inc. hat seinen Sitz in den USA. Die Daten&uuml;bermittlung in die USA erfolgt
+                auf Grundlage des <strong>EU-US Data Privacy Framework</strong> (Angemessenheitsbeschluss
+                der EU-Kommission vom 10. Juli 2023, Art. 45 DSGVO). GitHub ist unter dem Data Privacy
+                Framework zertifiziert.
+            </p>
+
+            <h3>4. Cookies</h3>
+            <p>
+                Diese Webseite verwendet <strong>keine Cookies</strong>. Es findet kein Tracking,
+                keine Analyse und keine Speicherung von Daten auf Ihrem Endger&auml;t statt.
+            </p>
+
+            <h3>5. Externe Links &ndash; PayPal</h3>
+            <p>
+                Diese Seite enth&auml;lt einen Link zu <strong>PayPal</strong> (PayPal (Europe)
+                S.&agrave; r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg).
+                Wenn Sie diesen Link anklicken, werden Sie auf die PayPal-Webseite weitergeleitet.
+                Dort gelten die Datenschutzbestimmungen von PayPal. Wir haben keinen Einfluss auf
+                die dort erhobenen Daten.
+            </p>
+
+            <h3>6. Externe Links &ndash; Sedo.com</h3>
+            <p>
+                Diese Seite enth&auml;lt einen Link zum Domain-Marktplatz <strong>Sedo.com</strong>
+                (Sedo GmbH, Im Mediapark 6a, 50670 K&ouml;ln). Beim Klick werden Sie auf die Sedo-Webseite
+                weitergeleitet, wo deren eigene Datenschutzbestimmungen gelten.
+            </p>
+
+            <h3>7. Kontaktaufnahme per E-Mail</h3>
+            <p>
+                Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben (E-Mail-Adresse, ggf. Name
+                und Inhalt der Nachricht) zur Bearbeitung der Anfrage verarbeitet. Rechtsgrundlage ist
+                <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (vorvertragliche Ma&szlig;nahmen) bzw.
+                <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an der Beantwortung).
+                Die Daten werden gel&ouml;scht, sobald sie f&uuml;r den Zweck ihrer Verarbeitung nicht
+                mehr erforderlich sind.
+            </p>
+
+            <h3>8. Ihre Rechte</h3>
+            <p>Sie haben gem&auml;&szlig; DSGVO folgende Rechte:</p>
+            <ul>
+                <li><strong>Auskunft</strong> (Art. 15 DSGVO) &ndash; &uuml;ber Ihre gespeicherten Daten</li>
+                <li><strong>Berichtigung</strong> (Art. 16 DSGVO) &ndash; unrichtiger Daten</li>
+                <li><strong>L&ouml;schung</strong> (Art. 17 DSGVO) &ndash; Recht auf Vergessenwerden</li>
+                <li><strong>Einschr&auml;nkung</strong> (Art. 18 DSGVO) &ndash; der Verarbeitung</li>
+                <li><strong>Daten&uuml;bertragbarkeit</strong> (Art. 20 DSGVO)</li>
+                <li><strong>Widerspruch</strong> (Art. 21 DSGVO) &ndash; gegen die Verarbeitung</li>
+            </ul>
+            <p>
+                Zur Aus&uuml;bung Ihrer Rechte wenden Sie sich an:
+                <a href="mailto:peterchm@t-online.de">peterchm@t-online.de</a>
+            </p>
+
+            <h3>9. Beschwerderecht</h3>
+            <p>
+                Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbeh&ouml;rde zu beschweren,
+                wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten
+                gegen die DSGVO verst&ouml;&szlig;t. Zust&auml;ndige Aufsichtsbeh&ouml;rde richtet
+                sich nach Ihrem Bundesland.
+            </p>
+
+            <h3>10. &Auml;nderungen</h3>
+            <p>
+                Diese Datenschutzerkl&auml;rung ist aktuell g&uuml;ltig (Stand: Februar 2026).
+                Durch Weiterentwicklung der Webseite oder ge&auml;nderte gesetzliche Vorgaben kann
+                eine Anpassung erforderlich werden.
+            </p>
+        </div>
+
         <footer>
+            <div class="legal-nav">
+                <a href="#impressum">Impressum</a>
+                <a href="#datenschutz">Datenschutz</a>
+            </div>
             &copy; 2026 F500 Trading System &middot; Privatprojekt &middot; KI-Forschung &amp; Autonomous Trading
         </footer>
     </div>
